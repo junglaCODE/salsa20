@@ -33,6 +33,7 @@ public class Encryptacion_Salsa extends Conversion_Datos {
     } //constructor 
 
     public void getQuarterround() {
-        __conversor__.sumaHexadecimal(__FuncionY[0],__FuncionY[1]);
+        System.out.println(__conversor__.sumaHexadecimal(__FuncionY[0],__FuncionY[1]));
+        System.out.println(__conversor__.convertHexBin(__conversor__.sumaHexadecimal(__FuncionY[0],__FuncionY[1])));
     }//fin de la funcion
 }//fin de la clase

@@ -6,12 +6,11 @@ package salsa_20;
 
 /**
  *
- * @author JLGC @monolinux
- * web junglacode.org
+ * @author JLGC @monolinux web junglacode.org
  */
 public class Conversion_Datos {
 
-    public String[] WordToBinary(String cadena) {
+    protected String[] WordToBinary(String cadena) {
         String __words__[] = cadena.split(" ");//separacion por palabras
         String __arrayBinario__[] = new String[__words__.length];
         for (int x = 0; x < __words__.length; x++) {
@@ -26,7 +25,7 @@ public class Conversion_Datos {
         return __arrayBinario__;
     }//funcion que convierte el arreglo en binario
 
-    public String[] WordtoHexadecimal(String cadena) {
+    protected String[] WordtoHexadecimal(String cadena) {
         String __words__[] = cadena.split(" ");//separacion por palabras
         String __arrayHexadecimal__[] = new String[__words__.length];
         for (int x = 0; x < __words__.length; x++) {
@@ -42,7 +41,7 @@ public class Conversion_Datos {
         return __arrayHexadecimal__;
     }
 
-    public void sumaHexadecimal(String dato_uno, String dato_dos /*hexadecimal*/) {
+    protected String sumaHexadecimal(String dato_uno, String dato_dos /*hexadecimal*/) {
         Integer __size__ = 0, __recorrido__ = 0, __multiplicacion__ = 0, __valor__ = 0, __total__ = 0;
         String __sumatorio__ = "", __resultado__ = "";//el valor sumado del hexadecimal
         String array_uno[] = convertLettertoHex(dato_uno);//convirtiendo los datos en hexadecimal
@@ -67,11 +66,11 @@ public class Conversion_Datos {
         }
         __sumatorio__ += findHextoDec(__recorrido__);//esto es si queda algun valor por recorrer
         //invirtiendo el resultado para que salga bien el resultado
-        System.out.println(__sumatorio__);
-        for (int i = __sumatorio__.length()-1; i >= 0; i--) {
+        //System.out.println(__sumatorio__);
+        for (int i = __sumatorio__.length() - 1; i >= 0; i--) {
             __resultado__ += __sumatorio__.charAt(i);
         }
-        System.out.println(__resultado__);
+        return __resultado__;
     }
 
     protected String[] convertLettertoHex(String hexadecimal) {
@@ -110,5 +109,21 @@ public class Conversion_Datos {
             }
         }//fin del for
         return __valor__;
+    }
+
+    protected String convertHexBin(String hexedecimal) {
+        String __binario = "";
+        char __hexadecimal__[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        String __binario__[] = {"0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"};
+        char[] __characters__ = hexedecimal.toCharArray();
+        for (int i = 0; i < __characters__.length; i++) {
+            for (int j = 0; j < __hexadecimal__.length; j++) {
+                if (__characters__[i] == __hexadecimal__[j]) {
+                    __binario += __binario__[j];
+                    break;
+                } 
+            }//fin del for
+        }
+        return __binario;
     }
 }//fin de la clase

@@ -16,7 +16,7 @@ public class Main extends Conversion_Datos{
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       Encryptacion_Salsa encryptar = new Encryptacion_Salsa("juan luis",2);
+       Encryptacion_Salsa encryptar = new Encryptacion_Salsa("carlos jarlos",2);
        encryptar.getQuarterround();
     }
     
